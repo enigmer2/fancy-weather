@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Task fancy-weather</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <main>
+      <section id="options" class="options">
+        <section id="refresh" class="refresh">
+          <button type="button">
+            <img src="img/refresh.svg" alt="" />
+          </button>
+        </section>
+        <section id="lang" class="lang">
+          <select class="droplist_base">
+            <option>en</option>
+            <option>ru</option>
+            <option>be</option>
+          </select>
+        </section>
+        <section id="fc" class="fc">
+          <input type="button" value="°F" />
+          <input type="button" value="°С" readonly />
+        </section>
+      </section>
+      <section id="search" class="search">
+        <form action="">
+          <input id="searchInput" class="input" type="text" />
+          <button id="searchVoice" class="search-voice" type="button">
+            <img src="img/searshVoice.svg" alt="" />
+          </button>
+          <button id="submit" class="submit" type="submit">Search</button>
+        </form>
+      </section>
+      <section id="title" class="title">
+        <address>Minsk, Belarus</address>
+        <time>Mon 28 October 17:23</time>
+      </section>
+      <section id="today" class="today">
+        <div class="temp">+33°</div>
+        <div class="weather-icon">weather-icon</div>
+        <div class="weather-more">overcast<br/>Feels like: 7° <br/> Wind: 2 m/s <br/> Humidity: 83%
+        </div>
+      </section>
+      <section id="days" class="days">
+        <section class="day">
+          <div>Day 1</div>
+          <div>gradus</div>
+          <div>img</div>
+        </section>
+        <section class="day">
+          <div>Day 2</div>
+          <div>gradus</div>
+          <div>img</div>
+        </section>
+        <section class="day">
+          <div>Day 3</div>
+          <div>gradus</div>
+          <div>img</div>
+        </section>
+      </section>
+      <section id="map" class="map">map</section>
+    </main>
+    <script src="js/main.js"></script>
+  </body>
+</html>
