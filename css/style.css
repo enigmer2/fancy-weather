@@ -26,7 +26,7 @@ address {
 main {
   display: grid;
   grid-template-columns: 90px 1fr 1fr 90px;
-  grid-template-rows: 40px 40px 87px 375px 1fr ;
+  grid-template-rows: 40px 40px 87px 375px 1fr;
   grid-template-areas:
     " . .           . . "
     " . options search . "
@@ -34,17 +34,100 @@ main {
     " . today      map . "
     " . days       map . ";
 }
-form{
+.refresh {
+  position: relative;
+  overflow: hidden;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.refresh > button {
+  width: 40px;
+  height: 40px;
+  background: rgba(180, 184, 187, 0.4);
+  cursor: pointer;
+  border: none;
+}
+.sun {
+  position: absolute;
+  left: 5px;
+  top: 5px;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.9);
+}
+.mount1 {
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  width: 40px;
+  height: 40px;
+  background: rgba(174, 181, 185, 0.3);
+  rotate: center;
+  transform: translate(10px, 20px) rotateZ(45deg);
+}
+.mount2 {
+  position: absolute;
+  left: 0px;
+  top: 10px;
+  width: 40px;
+  height: 40px;
+  background: rgba(174, 181, 185, 1);
+  rotate: center;
+  transform: translate(-10px, 20px) rotateZ(45deg);
+}
+.lang {
+  background: rgba(76, 82, 85, 0.4);
+  border-radius: 5px;
+  transform: translateX(10px);
+  cursor: pointer;
+}
+@media (min-width: 0px) and (max-width: 710px) {
+  .lang {
+    transform: translateX(0px);
+  }
+}
+.fc {
+  transform: translateX(20px);
+}
+@media (min-width: 0px) and (max-width: 710px) {
+  .fc {
+    transform: translateX(0px);
+  }
+}
+select {
+  width: 40px;
+  height: 40px;
+  background: rgba(174, 181, 185, 0.5);
+  border-radius: 5px;
+  cursor: pointer;
+}
+.temp-F {
+  width: 40px;
+  height: 40px;
+  background: rgba(76, 82, 85, 0.4);
+  border-radius: 5px 0px 0px 5px;
+  border: none;
+  transform: translateX(5px);
+}
+.temp-C {
+  width: 40px;
+  height: 40px;
+  background: rgba(174, 181, 185, 0.5);
+  border-radius: 0px 5px 5px 0px;
+  border: 1px solid blue;
+}
+form {
   display: flex;
   justify-content: flex-end;
   padding-left: 30px;
-
 }
 @media (min-width: 0px) and (max-width: 710px) {
   main {
     display: grid;
-      grid-template-columns: 1fr;
-    grid-template-rows: 40px 45px 45px 140px 1fr 1fr 1fr;
+    grid-gap: 10px;
+    grid-template-columns: 1fr;
+    grid-template-rows: 20px 40px 40px 140px 1fr 1fr 1fr;
     grid-template-areas:
       "."
       " options "
@@ -54,71 +137,78 @@ form{
       " days  "
       " map ";
   }
-  
- .day{
+
+  .day {
     font-size: 1em;
   }
-   /**/
+  /**/
 }
-.search{
+.search {
   grid-area: search;
-
 }
 @media (min-width: 0px) and (max-width: 710px) {
-  .search{
-
+  .search {
     justify-self: center;
   }
 }
 
- section {
- /* стиль для всех section 
+section {
+  /* стиль для всех section 
   padding: 20px;*/
   border: 1px solid red;
 }
 .options {
   grid-area: options;
   display: flex;
-  justify-content: space-evenly;
+  justify-content: start;
+}
+
+@media (min-width: 0px) and (max-width: 710px) {
+  .options {
+    display: flex;
+    justify-content: space-evenly;
+  }
 }
 .title {
   grid-area: title;
 }
+@media (min-width: 0px) and (max-width: 710px) {
+  .title {
+justify-self: center;
+  }
+}
 .today {
   display: grid;
   grid-area: today;
-  
-    display: grid;
-    grid-template-columns:1fr 1fr 1fr;
-    grid-template-rows: 1fr 1fr ;
-    grid-template-areas:
-    " temp . "  
+
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  grid-template-areas:
     " temp weather-icon "
     " temp weather-more ";
-  
 }
-.temp{
+.temp {
   grid-area: temp;
   font-style: normal;
-font-weight: bold;
-font-size: 306px;
-line-height: 373px;
-text-transform: uppercase;
+  font-weight: bold;
+  font-size: calc(1em + 8vw);
+  line-height: 373px;
+  text-transform: uppercase;
 }
 
 @media (min-width: 0px) and (max-width: 710px) {
-  .temp{
+  .temp {
     grid-area: temp;
     font-style: normal;
-  font-weight: bold;
-  font-size: 4rem;
-
+    font-weight: bold;
+    font-size: 4rem;
   }
 }
-.weather-icon{
+.weather-icon {
   grid-area: weather-icon;
 }
-.weather-more{
+.weather-more {
   grid-area: weather-more;
 }
 .days {
@@ -134,6 +224,8 @@ text-transform: uppercase;
 }
 .map {
   grid-area: map;
+  justify-self: end;
+  align-self: center;
 }
 footer {
   grid-area: footer;
@@ -145,7 +237,7 @@ input {
   width: 80%;
   max-width: 400px;
   background: rgba(76, 82, 85, 0.4);
-  border: 1px solid rgba(228, 227, 227, 0.5);
+  border: 1px solid rgba(228, 227, 227, 0.2);
   border-radius: 5px 0px 0px 5px;
   color: #fff;
   padding: 10px;
@@ -166,6 +258,7 @@ input {
   color: #fff;
   background: rgba(174, 181, 185, 0.5);
   border-radius: 0px 5px 5px 0px;
+  border: none;
   transform: translateX(-17px);
   cursor: pointer;
 }
