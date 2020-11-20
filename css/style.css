@@ -1,0 +1,181 @@
+html {
+  background: url("https://www.nasa.gov/sites/default/files/thumbnails/image/smap-weather.jpg");
+  font-family: Montserrat;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 30px;
+  text-transform: capitalize;
+  align-self: center;
+  justify-self: center;
+
+  color: #ffffff;
+}
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+address {
+  font-weight: bold;
+  font-size: 44px;
+  font-style: normal;
+  line-height: 54px;
+  text-transform: uppercase;
+}
+main {
+  display: grid;
+  grid-template-columns: 90px 1fr 1fr 90px;
+  grid-template-rows: 40px 40px 87px 375px 1fr ;
+  grid-template-areas:
+    " . .           . . "
+    " . options search . "
+    " . title      map . "
+    " . today      map . "
+    " . days       map . ";
+}
+form{
+  display: flex;
+  justify-content: flex-end;
+  padding-left: 30px;
+
+}
+@media (min-width: 0px) and (max-width: 710px) {
+  main {
+    display: grid;
+      grid-template-columns: 1fr;
+    grid-template-rows: 40px 45px 45px 140px 1fr 1fr 1fr;
+    grid-template-areas:
+      "."
+      " options "
+      " search "
+      " title "
+      " today "
+      " days  "
+      " map ";
+  }
+  
+ .day{
+    font-size: 1em;
+  }
+   /**/
+}
+.search{
+  grid-area: search;
+
+}
+@media (min-width: 0px) and (max-width: 710px) {
+  .search{
+
+    justify-self: center;
+  }
+}
+
+ section {
+ /* стиль для всех section 
+  padding: 20px;*/
+  border: 1px solid red;
+}
+.options {
+  grid-area: options;
+  display: flex;
+  justify-content: space-evenly;
+}
+.title {
+  grid-area: title;
+}
+.today {
+  display: grid;
+  grid-area: today;
+  
+    display: grid;
+    grid-template-columns:1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr ;
+    grid-template-areas:
+    " temp . "  
+    " temp weather-icon "
+    " temp weather-more ";
+  
+}
+.temp{
+  grid-area: temp;
+  font-style: normal;
+font-weight: bold;
+font-size: 306px;
+line-height: 373px;
+text-transform: uppercase;
+}
+
+@media (min-width: 0px) and (max-width: 710px) {
+  .temp{
+    grid-area: temp;
+    font-style: normal;
+  font-weight: bold;
+  font-size: 4rem;
+
+  }
+}
+.weather-icon{
+  grid-area: weather-icon;
+}
+.weather-more{
+  grid-area: weather-more;
+}
+.days {
+  grid-area: days;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+}
+@media (min-width: 0px) and (max-width: 710px) {
+  .days {
+    flex-direction: column;
+  }
+}
+.map {
+  grid-area: map;
+}
+footer {
+  grid-area: footer;
+}
+input {
+  cursor: pointer;
+}
+.input {
+  width: 80%;
+  max-width: 400px;
+  background: rgba(76, 82, 85, 0.4);
+  border: 1px solid rgba(228, 227, 227, 0.5);
+  border-radius: 5px 0px 0px 5px;
+  color: #fff;
+  padding: 10px;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 17px;
+  cursor: text;
+}
+.submit {
+  width: 101px;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 14px;
+  line-height: 17px;
+  text-align: center;
+  text-transform: uppercase;
+  color: #fff;
+  background: rgba(174, 181, 185, 0.5);
+  border-radius: 0px 5px 5px 0px;
+  transform: translateX(-17px);
+  cursor: pointer;
+}
+.search-voice {
+  border: none;
+  background: rgba(255, 255, 255, 0.4);
+  transform: translateX(-30px);
+  background: transparent;
+  cursor: pointer;
+}
+.search-voice > img {
+  cursor: pointer;
+}
