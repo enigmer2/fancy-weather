@@ -16,20 +16,23 @@
     <main>
       <section id="options" class="options">
         <section id="refresh" class="refresh">
+          <div class="sun"></div>
+          <div class="mount1"></div>
+          <div class="mount2"></div> 
           <button type="button">
             <img src="img/refresh.svg" alt="" />
           </button>
         </section>
         <section id="lang" class="lang">
           <select class="droplist_base">
-            <option>en</option>
-            <option>ru</option>
-            <option>be</option>
+            <option>ENG</option>
+            <option>RUS</option>
+            <option>BEL</option>
           </select>
         </section>
         <section id="fc" class="fc">
-          <input type="button" value="°F" />
-          <input type="button" value="°С" readonly />
+          <input class="temp-F" type="button" value="°F" />
+          <input class="temp-C" type="button" value="°С" />
         </section>
       </section>
       <section id="search" class="search">
@@ -48,7 +51,10 @@
       <section id="today" class="today">
         <div class="temp">+33°</div>
         <div class="weather-icon">weather-icon</div>
-        <div class="weather-more">overcast<br/>Feels like: 7° <br/> Wind: 2 m/s <br/> Humidity: 83%
+        <div class="weather-more">
+          overcast<br />Feels like: 7° <br />
+          Wind: 2 m/s <br />
+          Humidity: 83%
         </div>
       </section>
       <section id="days" class="days">
@@ -68,7 +74,9 @@
           <div>img</div>
         </section>
       </section>
-      <section id="map" class="map">map</section>
+      <section id="map" class="map">
+        map
+      </section>
     </main>
     <script src="js/main.js"></script>
   </body>
