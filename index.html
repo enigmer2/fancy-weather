@@ -16,11 +16,15 @@
     <main>
       <section id="options" class="options">
         <section id="refresh" class="refresh">
-          <div class="sun"></div>
-          <div class="mount1"></div>
-          <div class="mount2"></div> 
-          <button type="button">
-            <img src="img/refresh.svg" alt="" />
+          <button class="refresh-button" type="button">
+            <div class="sun"></div>
+            <div class="mount1"></div>
+            <div class="mount2"></div>
+            <img
+              class=""
+              src="img/refresh.svg"
+              alt="refresh"
+            />
           </button>
         </section>
         <section id="lang" class="lang">
@@ -50,7 +54,7 @@
       </section>
       <section id="today" class="today">
         <div class="temp">+33°</div>
-        <div class="weather-icon">weather-icon</div>
+        <div class="weather-icon"><img src="img/mist.svg" alt="" /></div>
         <div class="weather-more">
           overcast<br />Feels like: 7° <br />
           Wind: 2 m/s <br />
@@ -59,24 +63,26 @@
       </section>
       <section id="days" class="days">
         <section class="day">
-          <div>Day 1</div>
-          <div>gradus</div>
-          <div>img</div>
+          <div class="day-name">Day 1</div>
+          <div class="day-weather-gradus">+33°</div>
+          <img class="day-weather-icon" src="img/hail.svg" alt="" />
         </section>
         <section class="day">
-          <div>Day 2</div>
-          <div>gradus</div>
-          <div>img</div>
+          <div class="day-name">Day 2</div>
+          <div class="day-weather-gradus">+33°</div>
+          <img
+            class="day-weather-icon"
+            src="img/partly-cloudy-night-drizzle.svg"
+            alt=""
+          />
         </section>
         <section class="day">
-          <div>Day 3</div>
-          <div>gradus</div>
-          <div>img</div>
+          <div class="day-name">Day 3</div>
+          <div class="day-weather-gradus">+33°</div>
+          <img class="day-weather-icon" src="img/drizzle.svg" alt="" />
         </section>
       </section>
-      <section id="map" class="map">
-        map
-      </section>
+      <section id="map" class="map">map</section>
     </main>
     <script src="js/main.js"></script>
   </body>
