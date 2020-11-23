@@ -1,5 +1,11 @@
 html {
-  background: url("https://www.nasa.gov/sites/default/files/thumbnails/image/smap-weather.jpg");
+  background: linear-gradient(
+        rgba(8, 15, 26, 0.59) 0%,
+        rgba(17, 17, 46, 0.46) 100%
+      )
+      center center / cover fixed,
+    url(https://www.nasa.gov/sites/default/files/thumbnails/image/smap-weather.jpg)
+      center center no-repeat fixed;
   font-family: Montserrat;
   font-style: normal;
   font-weight: 600;
@@ -16,6 +22,7 @@ html {
   margin: 0;
   padding: 0;
 }
+
 address {
   font-weight: bold;
   font-size: 44px;
@@ -26,13 +33,27 @@ address {
 main {
   display: grid;
   grid-template-columns: 90px 1fr 1fr 90px;
-  grid-template-rows: 40px 40px 87px 375px 1fr;
+  grid-template-rows: 40px 40px 87px 1fr 200px;
   grid-template-areas:
     " . .           . . "
     " . options search . "
-    " . title      map . "
+    " . title      title . "
     " . today      map . "
     " . days       map . ";
+}
+
+@media (min-width: 740px) and (max-width: 930px) {
+  main {
+    display: grid;
+    grid-template-columns: 1fr 1fr 320px 1fr;
+    grid-template-rows: 40px 40px 87px 1fr 200px;
+    grid-template-areas:
+      " . .           . . "
+      " . options search . "
+      " . title      title . "
+      " . today      map . "
+      " . days       map . ";
+  }
 }
 .refresh {
   position: relative;
@@ -46,6 +67,8 @@ main {
   background: rgba(180, 184, 187, 0.4);
   cursor: pointer;
   border: none;
+  outline: none;
+  animation: spin 1.4s ease-in-out;
 }
 .sun {
   position: absolute;
@@ -82,7 +105,7 @@ main {
   transform: translateX(10px);
   cursor: pointer;
 }
-@media (min-width: 0px) and (max-width: 710px) {
+@media (min-width: 0px) and (max-width: 740px) {
   .lang {
     transform: translateX(0px);
   }
@@ -90,7 +113,7 @@ main {
 .fc {
   transform: translateX(20px);
 }
-@media (min-width: 0px) and (max-width: 710px) {
+@media (min-width: 0px) and (max-width: 740px) {
   .fc {
     transform: translateX(0px);
   }
@@ -122,16 +145,16 @@ form {
   justify-content: flex-end;
   padding-left: 30px;
 }
-@media (min-width: 0px) and (max-width: 710px) {
+@media (min-width: 0px) and (max-width: 740px) {
   main {
     display: grid;
     grid-gap: 10px;
     grid-template-columns: 1fr;
-    grid-template-rows: 20px 40px 40px 140px 1fr 1fr 1fr;
+    grid-template-rows: 20px 40px 40px auto 250px 1fr;
     grid-template-areas:
       "."
-      " options "
       " search "
+      " options "
       " title "
       " today "
       " days  "
@@ -146,24 +169,23 @@ form {
 .search {
   grid-area: search;
 }
-@media (min-width: 0px) and (max-width: 710px) {
+@media (min-width: 0px) and (max-width: 740px) {
   .search {
     justify-self: center;
   }
 }
 
-section {
-  /* стиль для всех section 
-  padding: 20px;*/
+/*section {
+  стиль для всех section 
   border: 1px solid red;
-}
+}*/
 .options {
   grid-area: options;
   display: flex;
   justify-content: start;
 }
 
-@media (min-width: 0px) and (max-width: 710px) {
+@media (min-width: 0px) and (max-width: 740px) {
   .options {
     display: flex;
     justify-content: space-evenly;
@@ -172,13 +194,12 @@ section {
 .title {
   grid-area: title;
 }
-@media (min-width: 0px) and (max-width: 710px) {
+@media (min-width: 0px) and (max-width: 740px) {
   .title {
-justify-self: center;
+    justify-self: center;
   }
 }
 .today {
-  display: grid;
   grid-area: today;
 
   display: grid;
@@ -188,8 +209,18 @@ justify-self: center;
     " temp weather-icon "
     " temp weather-more ";
 }
+.day {
+  display: grid;
+  display: grid;
+  grid-template-columns: 1fr 1frpx;
+  grid-template-rows: 30px 80px;
+  grid-template-areas:
+    " day-name day-name "
+    " day-weather-gradus day-weather-icon ";
+}
 .temp {
   grid-area: temp;
+  align-self: center;
   font-style: normal;
   font-weight: bold;
   font-size: calc(1em + 8vw);
@@ -197,7 +228,7 @@ justify-self: center;
   text-transform: uppercase;
 }
 
-@media (min-width: 0px) and (max-width: 710px) {
+@media (min-width: 0px) and (max-width: 740px) {
   .temp {
     grid-area: temp;
     font-style: normal;
@@ -205,10 +236,43 @@ justify-self: center;
     font-size: 4rem;
   }
 }
+.day-name {
+  justify-self: center;
+  align-self: center;
+  grid-area: day-name;
+  font-style: normal;
+  font-weight: bold;
+  font-size: calc(1em + 1vw);
+
+  text-transform: uppercase;
+}
+.day-weather-gradus {
+  justify-self: center;
+  align-self: center;
+  font-size: calc(1em + 1vw);
+}
+.day-weather-icon {
+  grid-area: day-weather-icon;
+  height: 100%;
+}
+@media (min-width: 0px) and (max-width: 740px) {
+  .day-temp {
+    grid-area: day-temp;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 1rem;
+  }
+}
 .weather-icon {
+  width: 102px;
+  justify-self: center;
+  align-self: center;
   grid-area: weather-icon;
 }
 .weather-more {
+  width: 150px;
+  justify-self: center;
+  align-self: center;
   grid-area: weather-more;
 }
 .days {
@@ -217,14 +281,14 @@ justify-self: center;
   flex-direction: row;
   justify-content: space-evenly;
 }
-@media (min-width: 0px) and (max-width: 710px) {
+@media (min-width: 0px) and (max-width: 740px) {
   .days {
     flex-direction: column;
   }
 }
 .map {
   grid-area: map;
-  justify-self: end;
+  justify-self: center;
   align-self: center;
 }
 footer {
@@ -264,6 +328,7 @@ input {
 }
 .search-voice {
   border: none;
+  outline: none;
   background: rgba(255, 255, 255, 0.4);
   transform: translateX(-30px);
   background: transparent;
@@ -272,3 +337,34 @@ input {
 .search-voice > img {
   cursor: pointer;
 }
+/*
+img {
+  border: 1px solid fuchsia;
+}
+
+
+
+.controls_block--btn_icon_active {
+  -webkit-animation: rotateSign 0.5s linear infinite;
+  animation: rotateSign 0.5s linear infinite;
+}
+@-webkit-keyframes rotateSign {
+  0% {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  to {
+    -webkit-transform: rotate(359deg);
+    transform: rotate(359deg);
+  }
+}
+@keyframes rotateSign {
+  0% {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  to {
+    -webkit-transform: rotate(359deg);
+    transform: rotate(359deg);
+  }
+}*/
