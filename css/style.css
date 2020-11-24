@@ -39,7 +39,7 @@ main {
     " . options search . "
     " . title      title . "
     " . today      map . "
-    " . days       map . ";
+    " . days       latlon . ";
 }
 
 @media (min-width: 740px) and (max-width: 930px) {
@@ -52,8 +52,12 @@ main {
       " . options search . "
       " . title      title . "
       " . today      map . "
-      " . days       map . ";
+      " . days       latlon . ";
   }
+}
+.latitude-longitude {
+  grid-area: latlon;
+  justify-self: end;
 }
 .refresh {
   position: relative;
@@ -150,7 +154,7 @@ form {
     display: grid;
     grid-gap: 10px;
     grid-template-columns: 1fr;
-    grid-template-rows: 20px 40px 40px auto 250px 1fr;
+    grid-template-rows: 20px 40px 40px auto 250px 1fr 1fr;
     grid-template-areas:
       "."
       " search "
@@ -158,13 +162,18 @@ form {
       " title "
       " today "
       " days  "
-      " map ";
+      " map "
+      "latlon";
   }
 
   .day {
     font-size: 1em;
   }
   /**/
+  .latitude-longitude {
+    grid-area: latlon;
+    justify-self: center;
+  }
 }
 .search {
   grid-area: search;
@@ -270,7 +279,7 @@ form {
   grid-area: weather-icon;
 }
 .weather-more {
-  width: 150px;
+  width: auto;
   justify-self: center;
   align-self: center;
   grid-area: weather-more;
@@ -288,10 +297,19 @@ form {
 }
 .map {
   grid-area: map;
-  width: 100%;
+  width: 99%;
   height: 100%;
-  justify-self: center;
+  justify-self: end;
   align-self: center;
+}
+@media (min-width: 0px) and (max-width: 740px) {
+  .map {
+    grid-area: map;
+    width: 80%;
+    height: 100%;
+    justify-self: center;
+    align-self: center;
+  }
 }
 footer {
   grid-area: footer;
