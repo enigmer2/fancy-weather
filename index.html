@@ -11,6 +11,14 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="css/style.css" />
+    <script
+      src="https://api-maps.yandex.ru/2.1/?lang=ru_RU&amp;"
+      type="text/javascript"
+    ></script>
+    <script
+      src="https://yandex.st/jquery/2.2.3/jquery.min.js"
+      type="text/javascript"
+    ></script>
   </head>
   <body>
     <main>
@@ -20,11 +28,7 @@
             <div class="sun"></div>
             <div class="mount1"></div>
             <div class="mount2"></div>
-            <img
-              class=""
-              src="img/refresh.svg"
-              alt="refresh"
-            />
+            <img class="" src="img/refresh.svg" alt="refresh" />
           </button>
         </section>
         <section id="lang" class="lang">
@@ -41,7 +45,12 @@
       </section>
       <section id="search" class="search">
         <form action="">
-          <input id="searchInput" class="input" type="text" />
+          <input
+            id="suggest"
+            class="input"
+            type="text"
+            placeholder="Введите адрес"
+          />
           <button id="searchVoice" class="search-voice" type="button">
             <img src="img/searshVoice.svg" alt="" />
           </button>
@@ -82,7 +91,7 @@
           <img class="day-weather-icon" src="img/drizzle.svg" alt="" />
         </section>
       </section>
-      <section id="map" class="map">map</section>
+      <section id="map" class="map"></section>
     </main>
     <script src="js/main.js"></script>
   </body>
