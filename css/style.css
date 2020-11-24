@@ -33,7 +33,7 @@ address {
 main {
   display: grid;
   grid-template-columns: 90px 1fr 1fr 90px;
-  grid-template-rows: 40px 40px 87px 1fr 200px;
+  grid-template-rows: 40px 40px 87px 1fr 100px;
   grid-template-areas:
     " . .           . . "
     " . options search . "
@@ -288,6 +288,8 @@ form {
 }
 .map {
   grid-area: map;
+  width: 100%;
+  height: 100%;
   justify-self: center;
   align-self: center;
 }
