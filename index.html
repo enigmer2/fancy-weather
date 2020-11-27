@@ -12,19 +12,20 @@
     />
     <link rel="stylesheet" href="css/style.css" />
     <script
-      src="https://api-maps.yandex.ru/2.1/?lang=ru_RU&amp;"
+      src="https://api-maps.yandex.ru/2.1/?lang=ru_RU&amp;apikey=3f4fd225-4360-4411-ad3c-832c9cd61d81"
       type="text/javascript"
     ></script>
     <script
       src="https://yandex.st/jquery/2.2.3/jquery.min.js"
       type="text/javascript"
     ></script>
+
   </head>
   <body>
     <main>
       <section id="options" class="options">
         <section id="refresh" class="refresh">
-          <button class="refresh-button" type="button">
+          <button id="refreshButton" class="refresh-button" type="button">
             <div class="sun"></div>
             <div class="mount1"></div>
             <div class="mount2"></div>
@@ -91,12 +92,22 @@
           <img class="day-weather-icon" src="img/drizzle.svg" alt="" />
         </section>
       </section>
-      <section id="map" class="map"></section>
+      <section id="map" class="map">
+        
+      <p id="notice">Адрес не найден</p>
+      <div id="map"></div>
+      <div id="footer">
+          <div id="messageHeader"></div>
+          <div id="message"></div>
+      </div>
+      </section>
+      
       <section id="latLon" class="latitude-longitude">
         <div>lat</div>
         <div>lon</div>
       </section>
     </main>
     <script src="js/main.js"></script>
+    <script src="js/yandex.map.js" type="text/javascript"></script>
   </body>
 </html>
