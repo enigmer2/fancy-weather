@@ -65,9 +65,11 @@ async function getLatLng(adress) {
   const res = await fetch(url);
   const data = await res.json();
   let LatLng = data.response.GeoObjectCollection.featureMember[0].GeoObject.Point.pos.split(" ");
-  console.log(`Lat = ${LatLng[1]} & Long = ${LatLng[0]}`)
-  latlon.innerHTML = `<div>latitude: ${LatLng[1]}</div><div>longitude: ${LatLng[0]}</div>`;
-  L.latLng(LatLng[1], LatLng[0]);
+  let Lat = LatLng[1];
+  let Lng = LatLng[0];
+  console.log(`Lat = ${Lat} & Long = ${Lng}`)
+  latlon.innerHTML = `<div>latitude: ${Lat}</div><div>longitude: ${Lng}</div>`;
+  L.latLng( {lat: Lat, lng: Lng} );
  }
 
 // функция изменения языка из language.json
