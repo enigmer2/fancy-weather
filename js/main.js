@@ -1,26 +1,15 @@
 let data = 0;
+let dataGeocode = 0;
+let adress = "";
 const time = document.getElementById("time");
 const latlon = document.getElementById("latLon");
+const suggest = document.getElementById("suggest");
+const submit = document.getElementById("submit"); 
+
 let refreshButton = document.getElementById("refreshButton");
 const dayOfWeekArr = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
 const monthArr = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
-   // Функция ymaps.ready() будет вызвана, когда
-    // загрузятся все компоненты API, а также когда будет готово DOM-дерево.
-    ////////////////////////////////////////////////////////////////////////////////ymaps.ready(initMap);
-    function initMap(){
-        // Создание карты.
-        var myMap = new ymaps.Map("map", {
-            // Координаты центра карты.
-            // Порядок по умолчанию: «широта, долгота».
-            // Чтобы не определять координаты центра карты вручную,
-            // воспользуйтесь инструментом Определение координат.
-            center: [52.40, 23.83],
-            // Уровень масштабирования. Допустимые значения:
-            // от 0 (весь мир) до 19.
-            zoom: 13,
-            controls: [ ]
-        });
-    }
+
    
 
 // функция показывает время 
@@ -61,19 +50,24 @@ async function getLinkToImage() {
   data = await res.json();
   console.log(data);
   console.log(data.urls.regular)
- 
+  document.body.style.background =`linear-gradient(rgba(8, 15, 26, 0.59) 0%,
+    rgba(17, 17, 46, 0.46) 100% ) center center / cover fixed, url(${data.urls.regular})
+      no-repeat fixed`;//center center
 }
+refreshButton.addEventListener("click", () => { getLinkToImage();}) 
 
-refreshButton.addEventListener("click", () => { 
-  
-  
-}) 
-getLinkToImage();
-document.body.style.background =`linear-gradient(rgba(8, 15, 26, 0.59) 0%,
-    rgba(17, 17, 46, 0.46) 100% ) center center / cover fixed, url(${data.urls.regular})  no-repeat fixed`;//center center
 
 // функция получения координат по введенному городу
+submit.addEventListener("click", () => {getLatLng(document.getElementById("suggest").value)}) 
 
+async function getLatLng(adress) {
+  const url = `https://geocode-maps.yandex.ru/1.x/?format=json&apikey=3f4fd225-4360-4411-ad3c-832c9cd61d81&geocode=${adress}&results=1`;
+  const res = await fetch(url);
+  const data = await res.json();
+  let LatLng = data.response.GeoObjectCollection.featureMember[0].GeoObject.Point.pos.split(" ");
+  console.log(`Lat = ${LatLng[1]} & Long = ${LatLng[0]}`)
+  initMap(LatLng[1],LatLng[0])
+ }
 
 // функция изменения языка из language.json
 
@@ -81,7 +75,7 @@ document.body.style.background =`linear-gradient(rgba(8, 15, 26, 0.59) 0%,
 // функция показывания картинки погоды (дождь, ветер, солнечно) напротив температуры
 
 
-// функция показывания карты по координатам
+// функция показывае карты по координатам
 
 
 // функция перевода из градусов С в F
