@@ -67,7 +67,7 @@ async function getLatLng(adress) {
   let LatLng = data.response.GeoObjectCollection.featureMember[0].GeoObject.Point.pos.split(" ");
   console.log(`Lat = ${LatLng[1]} & Long = ${LatLng[0]}`)
   latlon.innerHTML = `<div>latitude: ${LatLng[1]}</div><div>longitude: ${LatLng[0]}</div>`;
-  map.panTo(L.latLng(LatLng[1], LatLng[0]));
+  L.latLng(LatLng[1], LatLng[0]);
  }
 
 // функция изменения языка из language.json
