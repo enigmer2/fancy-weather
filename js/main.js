@@ -40,7 +40,7 @@ const monthArr = [
 
 // функция показывае карты по координатам
 let options = {
-  key: "cdBnGWND3sQr2oBX7dP1YEluyZIPAzSW", // Required: API key
+  key: "2EGrjPuE7U6PsUORrn5L5Bn9gpeuU1kC", // Required: API key
   verbose: true, // Put additional console output
   lat: 50.4, // Optional: Initial state of the map
   lon: 23.83,
@@ -89,7 +89,6 @@ navigator.geolocation.getCurrentPosition(function (position) {
 
 // функция изменения картинки фона
 async function getLinkToImage() {
-  const proxy = "https://cors-anywhere.herokuapp.com/"; //удалить на гитхабе
   const url = `${proxy}https://api.unsplash.com/photos/random?client_id=yghwryjYRXVTaNnEhzou83Z8zgbsJhiN9a7meyPMRhk`;
   const res = await fetch(url);
   data = await res.json();
