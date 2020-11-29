@@ -5,13 +5,13 @@ const time = document.getElementById("time");
 const latlon = document.getElementById("latLon");
 const suggest = document.getElementById("suggest");
 const submit = document.getElementById("submit");
-const cityname = document.getElementById("city")
+const cityname = document.getElementById("city");
 
-const mainTemp = document.getElementById("mainTemp")
-const weaterDescription = document.getElementById("weaterDescription")
-const weaterFeels = document.getElementById("weaterFeels")
-const weaterWind = document.getElementById("weaterWind")
-const weaterHumidity = document.getElementById("weaterHumidity")
+const mainTemp = document.getElementById("mainTemp");
+const weaterDescription = document.getElementById("weaterDescription");
+const weaterFeels = document.getElementById("weaterFeels");
+const weaterWind = document.getElementById("weaterWind");
+const weaterHumidity = document.getElementById("weaterHumidity");
 
 let refreshButton = document.getElementById("refreshButton");
 const dayOfWeekArr = [
@@ -89,13 +89,12 @@ navigator.geolocation.getCurrentPosition(function (position) {
 
 // функция изменения картинки фона
 async function getLinkToImage() {
-
   const url = `https://api.unsplash.com/photos/random?client_id=yghwryjYRXVTaNnEhzou83Z8zgbsJhiN9a7meyPMRhk`;
   const res = await fetch(url);
   data = await res.json();
   document.body.style.background = `linear-gradient(rgba(8, 15, 26, 0.59) 0%,
     rgba(17, 17, 46, 0.46) 100% ) center center / cover fixed, url(${data.urls.full})
-      no-repeat center center fixed`}
+      no-repeat center center fixed`;}
 refreshButton.addEventListener("click", () => {
   getLinkToImage();
 });
@@ -119,14 +118,13 @@ async function getLatLng(adress) {
   options.lon = Lng;
   windyInit(options);
   getLinkToImage();
-  getforecast(Lat,Lng);
-  getweather(Lat,Lng);
+  getforecast(Lat, Lng);
+  getweather(Lat, Lng);
 }
 
-
-// Функция запроса погоды 
-async function getweather(Lat,Lng) {
-  const url = `http://api.openweathermap.org/data/2.5/weather?lat=${Lat}&lon=${Lng}&APPID=57d69ed5ac76f17bc142f4c83b5cedda`;
+// Функция запроса погоды
+async function getweather(Lat, Lng) {
+  const url = `https://api.openweathermap.org/data/2.5/weather?lat=${Lat}&lon=${Lng}&APPID=57d69ed5ac76f17bc142f4c83b5cedda`;
   const res = await fetch(url);
   const data = await res.json();
   weaterDescription.innerHTML = `${data.weather[0].main}`;
@@ -135,8 +133,8 @@ async function getweather(Lat,Lng) {
   weaterWind.innerHTML = `${data.wind.speed} M/s`;
   mainTemp.innerHTML = converToGradus(data.main.temp);
 }
-async function getforecast(Lat,Lng) {
-  const url = `http://api.openweathermap.org/data/2.5/forecast?lat=${Lat}&lon=${Lng}&APPID=57d69ed5ac76f17bc142f4c83b5cedda`;
+async function getforecast(Lat, Lng) {
+  const url = `https://api.openweathermap.org/data/2.5/forecast?lat=${Lat}&lon=${Lng}&APPID=57d69ed5ac76f17bc142f4c83b5cedda`;
   const res = await fetch(url);
   const data = await res.json();
   console.log(data);
@@ -144,7 +142,7 @@ async function getforecast(Lat,Lng) {
 
 // функция перевода из градусов K в F или С
 function converToGradus(grad) {
-  return Math.round(grad -273,15);
+  return Math.round(grad - 273, 15);
 }
 
 // функция изменения языка из language.json
