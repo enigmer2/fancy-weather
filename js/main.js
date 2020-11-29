@@ -89,7 +89,8 @@ navigator.geolocation.getCurrentPosition(function (position) {
 
 // функция изменения картинки фона
 async function getLinkToImage() {
-  const url = `${proxy}https://api.unsplash.com/photos/random?client_id=yghwryjYRXVTaNnEhzou83Z8zgbsJhiN9a7meyPMRhk`;
+
+  const url = `https://api.unsplash.com/photos/random?client_id=yghwryjYRXVTaNnEhzou83Z8zgbsJhiN9a7meyPMRhk`;
   const res = await fetch(url);
   data = await res.json();
   document.body.style.background = `linear-gradient(rgba(8, 15, 26, 0.59) 0%,
