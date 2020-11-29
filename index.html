@@ -56,16 +56,17 @@
         </form>
       </section>
       <section id="title" class="title">
-        <address>Kamenetc, Belarus</address>
+        <address id="city">Kamenetc, Belarus</address>
         <time id="time">Mon 28 October 17:23</time>
       </section>
       <section id="today" class="today">
-        <div class="temp">+33°</div>
+        <div class="temp"><span id="mainTemp">+33</span>&deg;</div>
         <div class="weather-icon"><img src="img/mist.svg" alt="" /></div>
         <div class="weather-more">
-          overcast<br />Feels like: 7° <br />
-          Wind: 2 m/s <br />
-          Humidity: 83%
+          <p id="weaterDescription">overcast</p>
+          <p>Feels like: <span id="weaterFeels">7</span>&deg;</p>
+          <p id="weaterWind">Wind: 2 m/s</p>
+          <p id="weaterHumidity">Humidity: 83%</p>
         </div>
       </section>
       <section id="days" class="days">
