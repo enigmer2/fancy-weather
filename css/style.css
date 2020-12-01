@@ -409,3 +409,7 @@ img {
 #windy #logo-wrapper #logo {
     left: 75px;
 }
+/**/
+.days > .day:nth-child(1n + 4) {
+  display: none;
+}
