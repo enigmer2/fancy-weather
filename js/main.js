@@ -42,7 +42,10 @@ const monthArr = [
 
 // функция показывае карты по координатам
 let options = {
-  key: "cdBnGWND3sQr2oBX7dP1YEluyZIPAzSW", // Required: API key 2EGrjPuE7U6PsUORrn5L5Bn9gpeuU1kC
+  key: "2EGrjPuE7U6PsUORrn5L5Bn9gpeuU1kC", 
+  // Required: API key for 
+  // local    = cdBnGWND3sQr2oBX7dP1YEluyZIPAzSW 
+  // for git  = 2EGrjPuE7U6PsUORrn5L5Bn9gpeuU1kC
   verbose: true, // Put additional console output
   lat: 50.4, // Optional: Initial state of the map
   lon: 23.83,
